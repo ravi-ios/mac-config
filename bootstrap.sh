@@ -23,6 +23,16 @@ else
 fi
 
 # ===========================
+# .p10k.zsh
+# ===========================
+if [ ! -f ~/.p10k.zsh ]; then
+    echo "📄 Copying ~/.p10k.zsh..."
+    cp ./.p10k.zsh ~/.p10k.zsh
+else
+    echo "✅ ~/.p10k.zsh already exists!"
+fi
+
+# ===========================
 # Install Homebrew
 # ===========================
 if ! command -v brew &>/dev/null; then
@@ -54,7 +64,7 @@ if [ ! -f "Brewfile" ]; then
 fi
 
 # Install all packages using Brewfile
-brew bundle --file=Brewfile --no-lock --verbose --force
+brew bundle --file=Brewfile --verbose --force
 
 echo "✅ All packages from Brewfile installed/updated! \n"
 
